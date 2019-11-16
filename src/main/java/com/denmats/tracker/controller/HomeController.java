@@ -11,17 +11,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.denmats.tracker.dao.TxDaoImpl;
 import com.denmats.tracker.model.Transactions;
+import com.denmats.tracker.service.TransactionServiceImpl;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	TxDaoImpl txDaoImpl;
+	TransactionServiceImpl transactionServiceImpl;
 	
 	@RequestMapping("/")
 	public String home(Model m) {
-		List<Transactions> listGroupByOperation = txDaoImpl.groupByOperation();
-		m.addAttribute("listGroupByOperation", listGroupByOperation);
+		
+		  List<Transactions> listGroupByOperation = transactionServiceImpl.groupByOperation();
+		  m.addAttribute("listGroupByOperation", listGroupByOperation);
+		 
 		return "index";
 	}
 	

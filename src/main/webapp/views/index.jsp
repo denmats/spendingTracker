@@ -10,9 +10,16 @@
 <body>
 	<h1>home page</h1>
 	
+	<p>${result}</p>
+	
 	<form action="getTransactions" method="post">
 		<input type="hidden" name="action" value="LIST">
 		<input type="submit" value="Go To Transactions">
+	</form>
+	
+	<form action="getTx" method="get">
+		Enter id:<input type="text" name="id">
+		<input type="submit" value="Get Tx">
 	</form>
 	
 	<form action="add">
@@ -40,8 +47,6 @@
 	</tr>
 	</c:forEach>
 	</table>
-	
-	
 	
 </body>
 </html>

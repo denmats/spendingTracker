@@ -10,6 +10,8 @@
 <body>
 	<h1>Transactions page</h1>
 	
+	${message}
+	
 	<form action="/">
 		<input type="submit" value="Back Home">
 	</form>
@@ -20,16 +22,18 @@
 			<th>Operation</th>
 			<th>Amount</th>
 			<th>Date</th>
+			<th>Actions</th>
 		</tr>
 	<c:forEach items="${list}" var="transaction">	
 	<tr>	
 			<td>${transaction.getType()}</td>
 			<td>${transaction.getOperation()}</td>
 			<td>${transaction.getAmount()}</td>
+			<td>${transaction.getDate_tx()}</td>
 			<td>
-				<a href="${pageContext.request.contextPath}/add?type=${transaction.getType()}&id=${transaction.getId()}">Edit</a>
+				<a href="${pageContext.request.contextPath}/getTransaction?action=EDIT&id=${transaction.getId()}">Edit</a>
 				|
-				<a href="${pageContext.request.contextPath}/delete?id=${transaction.getId()}">Delete</a>
+				<a href="${pageContext.request.contextPath}/getTransactions?action=DELETE&id=${transaction.getId()}">Delete</a>
 			</td>
 	</tr>
 	</c:forEach>

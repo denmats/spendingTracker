@@ -11,12 +11,12 @@
 	
 	<form action="getTransactions" method="post">
 		
-		Enter income: 	<select name="operation">
+		Enter income: 	<select name="operation" value="${type}">
 							<option value="salary">Salary</option>
 							<option value="extra">Extra</option>
 						</select> 
-		Enter amount: 	<input type="text" name="amount" >
-		Enter date: 	<input type="date" name="date_tx" >
+		Enter amount: 	<input type="text" name="amount" value="${amount}">
+		Enter date: 	<input type="date" name="date_tx" value="${date_tx}">
 		
 						<input type="hidden" name="type" value="income">
 						<input type="hidden" name="id">
