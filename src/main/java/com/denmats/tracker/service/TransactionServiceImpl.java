@@ -17,8 +17,12 @@ public class TransactionServiceImpl implements TransactionService {
 	
 	@Override
 	public void insertTransaction(Transactions tx) {
-		UUID id = UUID.randomUUID();
-		tx.setId(id);
+		
+		if(tx.getId() == null) {
+			UUID id = UUID.randomUUID();
+			tx.setId(id);
+		}
+		
 		txDaoImpl.insertTransaction(tx);
 	}
 

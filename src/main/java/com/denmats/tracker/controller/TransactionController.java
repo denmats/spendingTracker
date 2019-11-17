@@ -1,22 +1,17 @@
 package com.denmats.tracker.controller;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.denmats.tracker.dao.TxDao;
-import com.denmats.tracker.dao.TxDaoImpl;
+
 import com.denmats.tracker.model.Transactions;
-import com.denmats.tracker.service.TransactionService;
 import com.denmats.tracker.service.TransactionServiceImpl;
 
 @Controller
@@ -37,7 +32,7 @@ public class TransactionController {
 
 	@RequestMapping("getTx")
 	public String getTx(@RequestParam("id") UUID id, Model m) {
-		m.addAttribute(transactionServiceImpl.findById(id).getType(), transactionServiceImpl.findById(id));
+		m.addAttribute("result", transactionServiceImpl.findById(id));
 		return "index";
 	}
 	
@@ -75,16 +70,13 @@ public class TransactionController {
 			break;
 			
 		case "EDIT":
-			if(tx.getType().equalsIgnoreCase("expense")){
-				m.addAttribute("expense", updateTx(tx.getId()));
+			Transactions t = updateTx(tx.getId());
+			if(t.getType().equalsIgnoreCase("expense")) {
+				m.addAttribute("expense", t);
 			}else {
-				m.addAttribute("income", updateTx(tx.getId()));
+				m.addAttribute("income", t);
 			}
-			
-//			message = "Record successfully updated!";
-//			m.addAttribute("result", message);
-//			m.addAttribute("list", transactionServiceImpl.list());
-			break;
+			return t.getType();
 
 		default:
 			m.addAttribute("list", transactionServiceImpl.list());

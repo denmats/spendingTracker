@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.denmats.tracker.dao.TxDaoImpl;
 import com.denmats.tracker.model.Transactions;
 import com.denmats.tracker.service.TransactionServiceImpl;
 

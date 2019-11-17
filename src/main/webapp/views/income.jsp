@@ -10,18 +10,16 @@
 	<h1>Add Income</h1>
 	
 	<form action="getTransactions" method="post">
-		
-		Enter income: 	<select name="operation" value="${type}">
+		Enter income: 	<select name="operation">
+							<option value="${income.getOperation()}">${income.getOperation()}</option>
 							<option value="salary">Salary</option>
 							<option value="extra">Extra</option>
 						</select> 
-		Enter amount: 	<input type="text" name="amount" value="${amount}">
-		Enter date: 	<input type="date" name="date_tx" value="${date_tx}">
-		
+		Enter amount: 	<input type="text" name="amount" value="${income.getAmount()}">
+		Enter date: 	<input type="date" name="date_tx" value="${income.getDate_tx()}">
 						<input type="hidden" name="type" value="income">
-						<input type="hidden" name="id">
-						<input type="hidden" name="action" value="SAVE">
-		
+						<input type="hidden" name="id" value="${income.getId()}">
+						<input type="hidden" name="action" value="SAVE">	
 		<input type="submit">
 	</form>
 	
