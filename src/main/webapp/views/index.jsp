@@ -10,16 +10,9 @@
 <body>
 	<h1>home page</h1>
 	
-	<p>${result}</p>
-	
 	<form action="getTransactions" method="post">
 		<input type="hidden" name="action" value="LIST">
 		<input type="submit" value="Go To Transactions">
-	</form>
-	
-	<form action="getTx" method="get">
-		Enter id:<input type="text" name="id">
-		<input type="submit" value="Get Tx">
 	</form>
 	
 	<form action="add">
@@ -40,13 +33,19 @@
 			<th>Amount</th>
 			
 		</tr>
-	<c:forEach items="${listGroupByOperation}" var="transaction">	
+	<c:forEach items="${listTest}" var="transaction">	
 	<tr>	
-			<td>${transaction.getOperation()}</td>
-			<td>${transaction.getAmount()}</td>
+			<td>${transaction.getOperation().toUpperCase()}</td>
+			<td>${transaction.getSum()}</td>
 	</tr>
 	</c:forEach>
 	</table>
+	
+	<div id="container" style="height: 400px"></div>
+	
+	<script src="js/highcharts.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/piechart.js"></script>
 	
 </body>
 </html>

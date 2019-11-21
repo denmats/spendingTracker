@@ -20,20 +20,16 @@ public class TransactionController {
 	@Autowired
 	TransactionServiceImpl transactionServiceImpl;
 
+	
 	@PostMapping("insertTransaction")
 	public void insertTransaction(Transactions tx) {
 		transactionServiceImpl.insertTransaction(tx);
 	}
 
+	
 	@DeleteMapping("deleteTransaction/{id}")
 	public void deleteTransaction(@RequestParam("id") UUID id) {
 		transactionServiceImpl.deleteTransaction(id);
-	}
-
-	@RequestMapping("getTx")
-	public String getTx(@RequestParam("id") UUID id, Model m) {
-		m.addAttribute("result", transactionServiceImpl.findById(id));
-		return "index";
 	}
 	
 	
@@ -42,6 +38,7 @@ public class TransactionController {
 		return transactionServiceImpl.findById(id);
 	}
 
+	
 	@RequestMapping("getTransactions")
 	public String selectOperation(@RequestParam("action") String action, Transactions tx, Model m) {
 		String message = "";

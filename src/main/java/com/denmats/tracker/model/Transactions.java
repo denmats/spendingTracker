@@ -3,14 +3,16 @@ package com.denmats.tracker.model;
 
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 
 @Entity
+@Table(name = "transactions")
 public class Transactions {
 
 	@Id
@@ -19,6 +21,8 @@ public class Transactions {
 	private double amount;
 	private String type;
 	private String date_tx;
+//	@Transient
+//	private double sum;
 	
 	
 	public Transactions() {}

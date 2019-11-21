@@ -22,12 +22,6 @@ public  class TxDaoImpl {
 	}
 	
 	
-	public List<Transactions> groupByOperation(){
-		List<Transactions> listGroupByOperation = txDao.findAllGroupByOperation();
-		return listGroupByOperation;
-	}
-	
-	
 	public void insertTransaction(Transactions transaction) {
 		txDao.save(transaction);
 	}
@@ -38,7 +32,6 @@ public  class TxDaoImpl {
 		txDao.deleteById(id);
 	}
 	
-
 
 	public Transactions  getTx(@RequestParam UUID id) {
 		Transactions tx = txDao.findById(id);

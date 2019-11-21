@@ -10,7 +10,7 @@
 <body>
 	<h1>Transactions page</h1>
 	
-	${message}
+	<p>${message}</p>
 	
 	<form action="/">
 		<input type="submit" value="Back Home">
@@ -40,8 +40,6 @@
 	</tr>
 	</c:forEach>
 	</table>
-	
-	
 	
 </body>
 </html>

@@ -15,42 +15,37 @@ public class TransactionServiceImpl implements TransactionService {
 	@Autowired
 	TxDaoImpl txDaoImpl;
 	
+	
 	@Override
 	public void insertTransaction(Transactions tx) {
-		
 		if(tx.getId() == null) {
 			UUID id = UUID.randomUUID();
 			tx.setId(id);
 		}
-		
 		txDaoImpl.insertTransaction(tx);
 	}
 
+	
 	@Override
 	public List<Transactions> list() {
 		return txDaoImpl.list();
 	}
 
-	@Override
-	public List<Transactions> groupByOperation() {
-		return txDaoImpl.groupByOperation();
-	}
 
 	@Override
 	public void deleteTransaction(UUID id) {
-		txDaoImpl.deleteTransaction(id);
-		
+		txDaoImpl.deleteTransaction(id);	
 	}
 
+	
 	@Override
 	public Transactions findById(UUID id) {
 		return txDaoImpl.getTx(id);
 	}
 
+	
 	@Override
 	public Transactions updateTx(UUID id) {
 		return txDaoImpl.updateTx(id);
 	}
-	
-	
 }
