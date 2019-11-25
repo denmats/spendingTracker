@@ -23,7 +23,8 @@ $.ajax({
 function drawPieChart(series){
 	Highcharts.chart('container', {
 	    chart: {
-	        plotBackgroundColor: null,
+	    	backgroundColor: 'transparent',
+	    	plotBackgroundColor: null,
 	        plotBorderWidth: null,
 	        plotShadow: false,
 	        type: 'pie'

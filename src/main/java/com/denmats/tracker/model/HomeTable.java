@@ -4,13 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "home_table")
 public class HomeTable {
 	@Id
 	private String operation;
 	private double sum;
-	
+
+
 	public String getOperation() {
 		return operation;
 	}
@@ -24,6 +26,8 @@ public class HomeTable {
 	public void setSum(double sum) {
 		this.sum = sum;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "HomeTable [operation=" + operation + ", sum=" + sum + "]";

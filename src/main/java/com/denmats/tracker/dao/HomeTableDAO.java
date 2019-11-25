@@ -16,6 +16,5 @@ public interface HomeTableDAO extends JpaRepository<HomeTable, String>{
 	  @Query(
 			  value="select * from home_table",
 			  nativeQuery=true)
-	  List<HomeTable> findAllByOperation();
-		
+	  List<HomeTable> findAllByOperation();	
 }

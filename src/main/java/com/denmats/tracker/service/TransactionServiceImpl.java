@@ -48,4 +48,16 @@ public class TransactionServiceImpl implements TransactionService {
 	public Transactions updateTx(UUID id) {
 		return txDaoImpl.updateTx(id);
 	}
+
+
+	@Override
+	public Double getTotalIncome() {
+		return txDaoImpl.getTotalIncome();
+	}
+
+
+	@Override
+	public Double getTotalExpense() {
+		return txDaoImpl.getTotalExpense();
+	}
 }

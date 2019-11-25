@@ -11,6 +11,7 @@ import javax.persistence.Transient;
 
 
 
+
 @Entity
 @Table(name = "transactions")
 public class Transactions {
@@ -21,8 +22,19 @@ public class Transactions {
 	private double amount;
 	private String type;
 	private String date_tx;
-//	@Transient
-//	private double sum;
+	@Transient
+	private double TotalExpense;
+	@Transient
+	private double TotalIncome;
+	
+	
+	public double getTotalExpense() {
+		return TotalExpense;
+	}
+	
+	public double getTotalIncome() {
+		return TotalIncome;
+	}
 	
 	
 	public Transactions() {}

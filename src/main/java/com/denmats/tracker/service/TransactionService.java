@@ -19,4 +19,8 @@ public interface TransactionService {
 	public Transactions findById(UUID id);
 	
 	public Transactions  updateTx(@RequestParam UUID id);
+	
+	public Double getTotalIncome();
+	
+	public Double getTotalExpense();
 }

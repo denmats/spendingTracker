@@ -16,8 +16,9 @@ public  class TxDaoImpl {
 	@Autowired
 	TxDao txDao;
 	
+	
 	public List<Transactions> list(){
-		List<Transactions> list = txDao.findAll();
+		List<Transactions> list = txDao.findAllOrderByDateDesc();
 		return list;
 	}
 	
@@ -42,5 +43,14 @@ public  class TxDaoImpl {
 	public Transactions  updateTx(@RequestParam UUID id) {
 		Transactions tx = txDao.findById(id);
 		return tx;
+	}
+	
+	public Double getTotalIncome() {
+		return txDao.getTotalIncome();
+	}
+	
+	
+	public Double getTotalExpense() {
+		return txDao.getTotalExpense();
 	}
 }

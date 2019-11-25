@@ -31,7 +31,15 @@ public class HomeController {
 	public String home(Model m) {
 		List<HomeTable> listGroupBy = homeTableDAOImpl.findAllByOperation();
 		m.addAttribute("listTest", listGroupBy);
-
+		m.addAttribute("totalIncome", transactionServiceImpl.getTotalIncome());
+		m.addAttribute("totalExpense", transactionServiceImpl.getTotalExpense());
+		
+		Double balance = transactionServiceImpl.getTotalIncome()-transactionServiceImpl.getTotalExpense();
+		m.addAttribute("balance", balance);
+		
+		Double totalCashFlow = transactionServiceImpl.getTotalIncome()+transactionServiceImpl.getTotalExpense();
+		m.addAttribute("progressBarIncomePercent", (transactionServiceImpl.getTotalIncome()/totalCashFlow)*100);
+		m.addAttribute("progressBarExpensePercent", (transactionServiceImpl.getTotalExpense()/totalCashFlow)*100);
 		return "index";
 	}
 
